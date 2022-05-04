@@ -1,6 +1,17 @@
 import '../styles/App.scss';
+import getApiData from '../services/api';
+import { useState, useEffect } from 'react';
+import React from 'react';
 
 function App() {
+  const [dataMovies, setDataMovies] = useState([]);
+  useEffect(() => {
+    getApiData().then((dataClean) => {
+      console.log(dataClean);
+      setDataMovies(dataClean);
+    });
+  }, []);
+
   return (
     <div className='App'>
       <p>
