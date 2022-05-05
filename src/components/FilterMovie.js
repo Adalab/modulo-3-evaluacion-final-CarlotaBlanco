@@ -2,6 +2,16 @@ function FilterMovie(props) {
   const handleChangeMovies = (ev) => {
     props.handleFilterMovies(ev.target.value);
   };
-  return <input type='text' name='' id='' onChange={handleChangeMovies} />;
+  return (
+    <>
+      <label htmlFor='fitermovies'>Película: </label>
+      <input
+        type='text'
+        name='fitermovies'
+        id='fitermovies'
+        onChange={handleChangeMovies}
+      />
+    </>
+  );
 }
 export default FilterMovie;
