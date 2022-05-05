@@ -1,0 +1,19 @@
+function MovieSceneDetail(props) {
+  return (
+    <section>
+      <img
+        className='image'
+        alt={props.scene.movie}
+        title={props.scene.movie}
+        src={props.scene.poster}
+      />
+      <h3 className=''>Película: {props.scene.movie}</h3>
+      <p className=''>Director: {props.scene.director}</p>
+      <p className=''>Frase: {props.scene.line}</p>
+      <a href={props.scene.audio} title='Audio' target='_blank'>
+        Escucha el Wow
+      </a>
+    </section>
+  );
+}
+export default MovieSceneDetail;

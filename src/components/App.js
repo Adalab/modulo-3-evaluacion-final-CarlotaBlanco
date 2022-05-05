@@ -1,14 +1,18 @@
 import '../styles/App.scss';
-import getApiData from '../services/api';
-import { useState, useEffect } from 'react';
 import React from 'react';
+import getApiData from '../services/api';
+import MovieSceneDetail from './MovieSceneDetail';
 import MovieSceneList from './MovieSceneList';
 import Filters from './Filters';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { matchPath, useLocation } from 'react-router';
 
 function App() {
   const [dataMovies, setDataMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState('');
   const [filterYears, setFilterYears] = useState('todos');
+
   useEffect(() => {
     getApiData().then((dataClean) => {
       setDataMovies(dataClean);
@@ -42,14 +46,36 @@ function App() {
     return noRepeatYears.sort();
   };
 
+  const { pathname } = useLocation();
+  const dataPath = matchPath('/movie/:movieId', pathname);
+
+  console.log(dataPath);
+
+  const movieId = dataPath !== null ? dataPath.params.movieId : null;
+  const movieFound = dataMovies.find((item) => item.id === movieId);
+
   return (
     <>
-      <Filters
-        handleFilterMovies={handleFilterMovies}
-        years={getYear()}
-        handleFilterYears={handleFilterYears}
-      />
-      <MovieSceneList movieScenes={moviesFilter} />
+      <h1>Buscador de Wows</h1>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Filters
+                handleFilterMovies={handleFilterMovies}
+                years={getYear()}
+                handleFilterYears={handleFilterYears}
+              />
+              <MovieSceneList movieScenes={moviesFilter} />
+            </>
+          }
+        />
+        <Route
+          path='/movie/:movieId'
+          element={<MovieSceneDetail scene={movieFound} />}
+        />
+      </Routes>
     </>
   );
 }
