@@ -2,6 +2,7 @@ function FilterMovie(props) {
   const handleChangeMovies = (ev) => {
     props.handleFilterMovies(ev.target.value);
   };
+
   return (
     <>
       <label htmlFor='fitermovies'>Película: </label>
@@ -10,6 +11,7 @@ function FilterMovie(props) {
         name='fitermovies'
         id='fitermovies'
         onChange={handleChangeMovies}
+        value={props.movieSearchValue}
       />
     </>
   );

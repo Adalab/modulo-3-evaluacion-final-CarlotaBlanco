@@ -14,7 +14,12 @@ function FilterYears(props) {
   return (
     <>
       <label htmlFor='fiteryears'>Año: </label>
-      <select name='fiteryears' id='fiteryears' onChange={handleChangeYears}>
+      <select
+        name='fiteryears'
+        id='fiteryears'
+        onChange={handleChangeYears}
+        value={props.yearSearchValue}
+      >
         <option value='todos'>Todos</option>
         {renderYears()}
       </select>

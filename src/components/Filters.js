@@ -8,6 +8,8 @@ function Filters(props) {
         <FilterYears
           years={props.years}
           handleFilterYears={props.handleFilterYears}
+          movieSearchValue={props.movieSearchValue}
+          yearSearchValue={props.yearSearchValue}
         />
       </form>
     </section>

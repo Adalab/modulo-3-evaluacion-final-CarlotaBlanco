@@ -5,7 +5,7 @@ import MovieSceneDetail from './MovieSceneDetail';
 import MovieSceneList from './MovieSceneList';
 import Filters from './Filters';
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 
 function App() {
@@ -48,9 +48,6 @@ function App() {
 
   const { pathname } = useLocation();
   const dataPath = matchPath('/movie/:movieId', pathname);
-
-  console.log(dataPath);
-
   const movieId = dataPath !== null ? dataPath.params.movieId : null;
   const movieFound = dataMovies.find((item) => item.id === movieId);
 
@@ -66,6 +63,8 @@ function App() {
                 handleFilterMovies={handleFilterMovies}
                 years={getYear()}
                 handleFilterYears={handleFilterYears}
+                movieSearchValue={filterMovies}
+                yearSearchValue={filterYears}
               />
               <MovieSceneList movieScenes={moviesFilter} />
             </>
