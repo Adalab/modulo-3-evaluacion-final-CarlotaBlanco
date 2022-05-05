@@ -4,11 +4,13 @@ function Filters(props) {
   return (
     <section>
       <form>
-        <FilterMovie handleFilterMovies={props.handleFilterMovies} />
+        <FilterMovie
+          handleFilterMovies={props.handleFilterMovies}
+          filterMovies={props.filterMovies}
+        />
         <FilterYears
           years={props.years}
           handleFilterYears={props.handleFilterYears}
-          movieSearchValue={props.movieSearchValue}
           yearSearchValue={props.yearSearchValue}
         />
       </form>

@@ -7,17 +7,30 @@ import Filters from './Filters';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
+import LocalStorage from '../services/localStorage';
 
 function App() {
-  const [dataMovies, setDataMovies] = useState([]);
-  const [filterMovies, setFilterMovies] = useState('');
-  const [filterYears, setFilterYears] = useState('todos');
+  const [dataMovies, setDataMovies] = useState(LocalStorage.get('movies', []));
+  const [filterMovies, setFilterMovies] = useState(
+    LocalStorage.get('filterMovies', '')
+  );
+  const [filterYears, setFilterYears] = useState(
+    LocalStorage.get('filterYears', 'todos')
+  );
 
   useEffect(() => {
-    getApiData().then((dataClean) => {
-      setDataMovies(dataClean);
-    });
+    if (dataMovies.length === 0) {
+      getApiData().then((dataClean) => {
+        setDataMovies(dataClean);
+      });
+    }
   }, []);
+
+  useEffect(() => {
+    LocalStorage.set('movies', dataMovies);
+    LocalStorage.set('filterYears', filterYears);
+    LocalStorage.set('filterMovies', filterMovies);
+  }, [dataMovies, filterMovies, filterYears]);
 
   const handleFilterMovies = (value) => {
     setFilterMovies(value);
@@ -63,7 +76,7 @@ function App() {
                 handleFilterMovies={handleFilterMovies}
                 years={getYear()}
                 handleFilterYears={handleFilterYears}
-                movieSearchValue={filterMovies}
+                filterMovies={filterMovies}
                 yearSearchValue={filterYears}
               />
               <MovieSceneList movieScenes={moviesFilter} />

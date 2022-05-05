@@ -11,7 +11,7 @@ function FilterMovie(props) {
         name='fitermovies'
         id='fitermovies'
         onChange={handleChangeMovies}
-        value={props.movieSearchValue}
+        value={props.filterMovies}
       />
     </>
   );
