@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 function MovieSceneDetail(props) {
   return (
     <section>
@@ -13,6 +14,9 @@ function MovieSceneDetail(props) {
       <a href={props.scene.audio} title='Audio' target='_blank'>
         Escucha el Wow
       </a>
+      <Link className='' to='/'>
+        Volver
+      </Link>
     </section>
   );
 }
