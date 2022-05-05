@@ -39,6 +39,10 @@ function App() {
     setFilterYears(value);
   };
 
+  const handleNoSubmit = (ev) => {
+    ev.preventDefault();
+  };
+
   const moviesFilter = dataMovies
     .filter((movie) => {
       return movie.movie.toLowerCase().includes(filterMovies.toLowerCase());
@@ -78,6 +82,7 @@ function App() {
                 handleFilterYears={handleFilterYears}
                 filterMovies={filterMovies}
                 yearSearchValue={filterYears}
+                handleNoSubmit={handleNoSubmit}
               />
               <MovieSceneList movieScenes={moviesFilter} />
             </>

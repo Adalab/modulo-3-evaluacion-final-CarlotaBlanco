@@ -1,17 +1,21 @@
 import MovieSceneItem from './MovieSceneItem';
 function MovieSceneList(props) {
-  const sceneElements = props.movieScenes.map((scene, index) => {
+  if (props.movieScenes.length === 0) {
+    return <p>No hay ninguna película que coincida con tu búsqueda</p>;
+  } else {
+    const sceneElements = props.movieScenes.map((scene, index) => {
+      return (
+        <li key={index} className=''>
+          <MovieSceneItem scene={scene} />
+        </li>
+      );
+    });
     return (
-      <li key={index} className=''>
-        <MovieSceneItem scene={scene} />
-      </li>
+      <section>
+        <ul className=''>{sceneElements}</ul>
+      </section>
     );
-  });
-  return (
-    <section>
-      <ul className=''>{sceneElements}</ul>
-    </section>
-  );
+  }
 }
 
 export default MovieSceneList;
