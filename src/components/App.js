@@ -63,7 +63,7 @@ function App() {
   const { pathname } = useLocation();
   const dataPath = matchPath('/movie/:movieId', pathname);
   const movieId = dataPath !== null ? dataPath.params.movieId : null;
-  const movieFound = dataMovies.find((item) => item.id === parseInt(movieId));
+  const movieFound = dataMovies.find((item) => item.id === movieId);
 
   return (
     <>
@@ -89,6 +89,7 @@ function App() {
           path='/movie/:movieId'
           element={<MovieSceneDetail scene={movieFound} />}
         />
+        <Route to='*' element={<NotFoundPage />} />
       </Routes>
     </>
   );

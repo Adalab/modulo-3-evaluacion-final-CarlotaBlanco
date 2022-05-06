@@ -4,9 +4,9 @@ const getApiData = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      const dataClean = data.map((movie, index) => {
+      const dataClean = data.map((movie) => {
         return {
-          id: index,
+          id: movie.movie + movie.total_wows_in_movie,
           poster: movie.poster,
           movie: movie.movie,
           line: movie.full_line,
