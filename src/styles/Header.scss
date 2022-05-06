@@ -1,0 +1,11 @@
+.header {
+  padding: 2% 0;
+  display: flex;
+  justify-content: center;
+  &__image {
+    width: 80%;
+    @media all and (min-width: 768px) {
+      width: 60%;
+    }
+  }
+}

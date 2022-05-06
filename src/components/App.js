@@ -9,6 +9,8 @@ import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 import LocalStorage from '../services/localStorage';
 import NotFoundPage from './NotFoundPage';
+import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   const [dataMovies, setDataMovies] = useState(LocalStorage.get('movies', []));
@@ -67,7 +69,8 @@ function App() {
 
   return (
     <>
-      <h1>Buscador de Wows</h1>
+      <Header />
+      <h1 className='title'>El buscador de “Wows” de Owen Wilson:</h1>
       <Routes>
         <Route
           path='/'
@@ -91,6 +94,7 @@ function App() {
         />
         <Route to='*' element={<NotFoundPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,28 @@
+$font-family: 'Nunito', sans-serif;
+$color-grey: #595a5c;
+$color-blue: #accdee;
+
+.filters {
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+
+  &__fieldset {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    border: 1.5px solid $color-blue;
+    border-radius: 1rem;
+    font-family: $font-family;
+    color: $color-grey;
+    font-size: 10pt;
+    flex-wrap: wrap;
+    @media all and (min-width: 768px) {
+      font-size: 14pt;
+    }
+    @media all and (min-width: 1200px) {
+      font-size: 16pt;
+    }
+  }
+}

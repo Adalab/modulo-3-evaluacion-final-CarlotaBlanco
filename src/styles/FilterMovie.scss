@@ -1,0 +1,26 @@
+$font-family: 'Nunito', sans-serif;
+$color-grey: #595a5c;
+$color-yellow: #fed37f;
+
+.input_filter_movies {
+  width: 71vw;
+  height: 2rem;
+  background-color: $color-yellow;
+  opacity: 60%;
+  border-radius: 8px;
+  padding: 0 2%;
+  border: none;
+  font-family: $font-family;
+  font-size: 14pt;
+
+  @media all and (min-width: 768px) {
+    width: 30vw;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+.label_filters {
+  font-size: 14pt;
+  margin-right: 1rem;
+}

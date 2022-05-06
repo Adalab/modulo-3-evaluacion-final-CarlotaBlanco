@@ -1,0 +1,21 @@
+$color-grey: #595a5c;
+
+.card {
+  color: $color-grey;
+  text-decoration: none;
+  text-align: center;
+
+  &__image {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  &__line {
+    font-style: italic;
+  }
+  &__title {
+    margin-bottom: 0;
+  }
+  &__year {
+    margin-top: 0;
+  }
+}
