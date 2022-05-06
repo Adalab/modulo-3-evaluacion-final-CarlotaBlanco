@@ -8,15 +8,13 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 import LocalStorage from '../services/localStorage';
+import NotFoundPage from './NotFoundPage';
 
 function App() {
   const [dataMovies, setDataMovies] = useState(LocalStorage.get('movies', []));
-  const [filterMovies, setFilterMovies] = useState(
-    LocalStorage.get('filterMovies', '')
-  );
-  const [filterYears, setFilterYears] = useState(
-    LocalStorage.get('filterYears', 'todos')
-  );
+  const [filterMovies, setFilterMovies] = useState('');
+
+  const [filterYears, setFilterYears] = useState('todos');
 
   useEffect(() => {
     if (dataMovies.length === 0) {
@@ -28,9 +26,7 @@ function App() {
 
   useEffect(() => {
     LocalStorage.set('movies', dataMovies);
-    LocalStorage.set('filterYears', filterYears);
-    LocalStorage.set('filterMovies', filterMovies);
-  }, [dataMovies, filterMovies, filterYears]);
+  }, [dataMovies]);
 
   const handleFilterMovies = (value) => {
     setFilterMovies(value);
@@ -44,6 +40,7 @@ function App() {
   };
 
   const moviesFilter = dataMovies
+    .sort((a, b) => a.movie.localeCompare(b.movie))
     .filter((movie) => {
       return movie.movie.toLowerCase().includes(filterMovies.toLowerCase());
     })
@@ -66,7 +63,7 @@ function App() {
   const { pathname } = useLocation();
   const dataPath = matchPath('/movie/:movieId', pathname);
   const movieId = dataPath !== null ? dataPath.params.movieId : null;
-  const movieFound = dataMovies.find((item) => item.id === movieId);
+  const movieFound = dataMovies.find((item) => item.id === parseInt(movieId));
 
   return (
     <>
