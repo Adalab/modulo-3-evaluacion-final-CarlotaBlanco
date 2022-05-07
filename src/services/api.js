@@ -6,7 +6,7 @@ const getApiData = () => {
     .then((data) => {
       const dataClean = data.map((movie) => {
         return {
-          id: movie.movie + movie.total_wows_in_movie,
+          id: movie.movie + movie.current_wow_in_movie,
           poster: movie.poster,
           movie: movie.movie,
           line: movie.full_line,

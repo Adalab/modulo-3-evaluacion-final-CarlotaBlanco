@@ -1,4 +1,4 @@
-# Módulo 3. Evaluación final
+# Módulo 3. Evaluación final React - Carlota Blanco Aylagas
 
 ## Cómo arrancar el proyecto
 

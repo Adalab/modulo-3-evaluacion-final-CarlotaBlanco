@@ -15,7 +15,6 @@ import Footer from './Footer';
 function App() {
   const [dataMovies, setDataMovies] = useState(LocalStorage.get('movies', []));
   const [filterMovies, setFilterMovies] = useState('');
-
   const [filterYears, setFilterYears] = useState('todos');
 
   useEffect(() => {
