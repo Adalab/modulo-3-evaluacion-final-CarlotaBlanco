@@ -8,9 +8,9 @@ function MovieSceneList(props) {
       </p>
     );
   } else {
-    const sceneElements = props.movieScenes.map((scene) => {
+    const sceneElements = props.movieScenes.map((scene, index) => {
       return (
-        <li key={scene.id} className='results_list__items'>
+        <li key={index} className='results_list__items'>
           <MovieSceneItem scene={scene} />
         </li>
       );
