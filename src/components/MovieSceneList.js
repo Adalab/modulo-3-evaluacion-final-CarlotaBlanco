@@ -4,7 +4,7 @@ function MovieSceneList(props) {
   if (props.movieScenes.length === 0) {
     return (
       <p className='results_not_found'>
-        No hay ninguna película que coincida con tu búsqueda
+        No hay ninguna película que coincida con {props.filterMovies}
       </p>
     );
   } else {

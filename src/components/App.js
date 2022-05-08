@@ -83,7 +83,10 @@ function App() {
                 yearSearchValue={filterYears}
                 handleNoSubmit={handleNoSubmit}
               />
-              <MovieSceneList movieScenes={moviesFilter} />
+              <MovieSceneList
+                movieScenes={moviesFilter}
+                filterMovies={filterMovies}
+              />
             </>
           }
         />
