@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "./static/css/main.26a6c1e2.css",
-    "main.js": "./static/js/main.99e8273f.js",
+    "main.js": "./static/js/main.cb64d39d.js",
     "static/media/buscador_owen_willsons_wow_cabecera.png": "./static/media/buscador_owen_willsons_wow_cabecera.c0d892886b47f7d85ee9.png",
     "static/media/not_found.png": "./static/media/not_found.721c1231e10dce75a2f8.png",
     "index.html": "./index.html",
     "main.26a6c1e2.css.map": "./static/css/main.26a6c1e2.css.map",
-    "main.99e8273f.js.map": "./static/js/main.99e8273f.js.map"
+    "main.cb64d39d.js.map": "./static/js/main.cb64d39d.js.map"
   },
   "entrypoints": [
     "static/css/main.26a6c1e2.css",
-    "static/js/main.99e8273f.js"
+    "static/js/main.cb64d39d.js"
   ]
 }
